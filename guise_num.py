@@ -18,3 +18,7 @@ while low<= high:
 
 print("\nAI Predection complete")
 print("Your number is : ", low)
+
+
+# this code typically searching for a binary search...
+# And it find a mid value for finding number and it working procudure 7 step....

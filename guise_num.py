@@ -8,7 +8,7 @@ input("press Enter when you're ready...")
 low = 1
 high = 100
 while low<= high:
-    mid = (low+high) // 2
+    mid = (low+high) // 2   # finding mid value
     answer = input(f"\nIs your number greater than {mid}?(y/n): ")
     
     if answer.lower() == "y":

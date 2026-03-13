@@ -17,7 +17,7 @@ while low<= high:
         high = mid - 1
 
 print("\nAI Predection complete")
-print("Your number is : ", low)
+print("Your number is : ", low) 
 
 
 # this code typically searching for a binary search...

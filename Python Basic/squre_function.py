@@ -1,14 +1,2 @@
-import turtle
-def draw_squre(side_length):
-    for i in range(4):
-        turtle.forward(side_length)
-        turtle.left(90)
-
-counter = 0
-
-while(counter < 90):
-    draw_squre(100)
-    turtle.right(4)
-    counter +=1
-
-turtle.exitonclick()
+Python 3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0] on linux
+Type "help", "copyright", "credits" or "license()" for more information.

@@ -1,71 +1,61 @@
 # Machine Learning & Reinforcement Learning – Self Learning Journey 🚀
 
-This repository documents my journey of learning Machine Learning (ML) and Reinforcement Learning (RL).
-
-I am learning these topics through self-study, mainly by watching YouTube tutorials, reading documentation, and practicing with code.  
-The goal of this repository is to track my progress, keep notes, and store experiments.
+This repository contains notes, experiments, and small projects created while learning Machine Learning (ML) and Reinforcement Learning (RL).
 
 ---
 
-## 📚 What I’m Learning
+## What’s in this repo
 
-- Machine Learning fundamentals
-- Python for ML
-- Data preprocessing
-- Supervised Learning
-- Unsupervised Learning
-- Reinforcement Learning
-- Model evaluation
-- Practical ML experiments
+- **Focus:** ML fundamentals, practical Python for ML, and Reinforcement Learning experiments.
+- **Content types:** Jupyter notebooks, standalone scripts, model code, and datasets used for practice.
 
 ---
 
-## 🧠 Learning Method
+## Top-level folders (overview)
 
-I am learning by:
-
-- Watching YouTube tutorials
-- Reading blogs and documentation
-- Practicing with small projects
-- Implementing algorithms from scratch
-- Experimenting with different ML models
+- `CNN Model/` - Convolutional model code and experiments
+- `Data Analysis/` - Notebooks and examples for data processing and analysis
+- `Object Orentade Programing system/` - OOP practice notebooks and examples
+- `Python Basic/` - Beginner Python scripts and tutorials (e.g. [Python Basic/internet.py](Python Basic/internet.py))
+- `random/` - Scratch scripts and small experiments
+- `tfenv/` - Local Python virtual environment used for experiments
 
 ---
 
-## 📂 Repository Structure
+## Quick start
 
-```
-machine-learning-journey/
-│
-├── notes/                   # Study notes
-├── notebooks/               # Jupyter notebooks
-├── projects/                # Small ML projects
-├── reinforcement-learning/  # RL experiments
-└── datasets/                # Practice datasets
+1. Use a Python 3.10+ interpreter. A local virtual environment is available at `tfenv/`.
+
+2. (Optional) Create and activate a fresh virtualenv:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
 ```
 
----
+1. If a `requirements.txt` file exists, install dependencies:
 
-## 🎯 Goals
+```bash
+pip install -r requirements.txt
+```
 
-- Build a strong foundation in Machine Learning
-- Understand Reinforcement Learning concepts
-- Implement algorithms through coding
-- Create small ML projects
-- Track my learning progress
+1. Run a sample script, for example:
 
----
-
-## 📈 Progress
-
-This repository will grow as I continue learning and practicing.
+```bash
+python "Python Basic/internet.py"
+```
 
 ---
 
-## 🤝 Contributions
+## Notes & Contributions
 
-This is a personal learning repository, but suggestions and improvements are always welcome!
+- This is a personal learning repository; suggestions and small improvements are welcome.
+- If you add experiments or datasets, please document them with a short README inside the folder.
 
 ---
+
+## Status
+
+Active learning repository — updated incrementally as I study and experiment.
 
 ⭐ If you find this repository helpful, feel free to give it a star.

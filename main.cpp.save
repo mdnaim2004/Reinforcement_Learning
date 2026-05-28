@@ -1,0 +1,121 @@
+#include <opencv2/opencv.hpp>
+#include <opencv2/dnn.hpp>
+#include <iostream>
+
+using namespace cv;
+using namespace std;
+
+vector<string> emotions = {
+    "Angry", "Disgust", "Fear", "Happy",
+    "Sad", "Surprise", "Neutral"
+};
+
+int main() {
+
+    CascadeClassifier faceCascade;
+
+    if (!faceCascade.load("haarcascade_frontalface_default.xml")) {
+        cout << "Face detector load hoy nai!" << endl;
+        return -1;
+    }
+
+    dnn::Net net = dnn::readNetFromONNX("emotion-ferplus-8.onnx");
+
+    VideoCapture cap(0);
+
+    if (!cap.isOpened()) {
+        cout << "Camera open hoy nai!" << endl;
+        return -1;
+    }
+
+    Mat frame, gray;
+
+    while (true) {
+
+        cap >> frame;
+
+        if (frame.empty())
+            break;
+
+        cvtColor(frame, gray, COLOR_BGR2GRAY);
+
+        vector<Rect> faces;
+
+        faceCascade.detectMultiScale(
+            gray,
+            faces,
+            1.1,
+            5,
+            0,
+            Size(80, 80)
+        );
+
+        for (Rect face : faces) {
+
+            Mat faceROI = gray(face);
+
+            resize(faceROI, faceROI, Size(64, 64));
+
+            Mat blob = dnn::blobFromImage(
+                faceROI,
+                1.0 / 255.0,
+                Size(64, 64)
+            );
+
+            net.setInput(blob);
+
+            Mat output = net.forward();
+
+            Point classIdPoint;
+            double confidence;
+
+            minMaxLoc(
+                output,
+                0,
+                &confidence,
+                0,
+                &classIdPoint
+            );
+
+            int id = classIdPoint.x;
+
+            string label =
+                emotions[id] + " " +
+                to_string((int)(confidence * 100)) + "%";
+
+            rectangle(
+                frame,
+                face,
+                Scalar(0, 255, 0),
+                2
+            );
+
+            putText(
+                frame,
+                label,
+                Point(face.x, face.y - 10),
+                FONT_HERSHEY_SIMPLEX,
+                0.8,
+                Scalar(0, 255, 0),
+                2
+            );
+        }
+
+        imshow("Emotion Recognition", frame);
+
+        if (waitKey(1) == 27)
+            break;
+    }
+
+    cap.release();
+
+    destroyAllWindows();
+
+    return 0;
+}#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello Emotion Project!" << endl;
+    return 0;
+}

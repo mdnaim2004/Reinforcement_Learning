@@ -44,6 +44,7 @@ python run.py
 
 Press `q` (or `Esc`) to quit.
 Press `r` to reset football selection and control.
+The viewer starts in fullscreen mode.
 
 ## Notes
 

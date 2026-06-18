@@ -1,3 +1,4 @@
 {
-  "python.terminal.activateEnvironment": false
+  "python.terminal.activateEnvironment": false,
+  "python.defaultInterpreterPath": "/home/mdnaim/miniconda3/envs/tony_env/bin/python"
 }

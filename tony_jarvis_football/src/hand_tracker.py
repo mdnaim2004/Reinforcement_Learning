@@ -5,6 +5,7 @@ import urllib.request
 
 import cv2
 import numpy as np
+import mediapipe as mp
 from mediapipe.tasks import python as mp_tasks
 from mediapipe.tasks.python import vision as mp_vision
 
@@ -62,9 +63,7 @@ class HandTracker:
             return []
 
         frame_rgb = cv2.cvtColor(frame_bgr, cv2.COLOR_BGR2RGB)
-        mp_image = mp_vision.RunningMode.IMAGE
-        image = mp_vision.Image(
-            image_format=mp_vision.ImageFormat.SRGB, data=frame_rgb)
+        image = mp.Image(image_format=mp.ImageFormat.SRGB, data=frame_rgb)
         results = self._landmarker.detect(image)
 
         if not results.hand_landmarks:

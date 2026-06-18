@@ -4,6 +4,10 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
+if [[ -d "tony_env" && ! -e "tony_env/bin/activate" && ! -e "tony_env/conda-meta" ]]; then
+  rm -rf tony_env
+fi
+
 if [[ -d "tony_env" && -x "tony_env/bin/python" ]]; then
   echo "tony_env already exists. Reusing it."
   source tony_env/bin/activate
@@ -39,8 +43,9 @@ else
   conda create -y -n "$CONDA_ENV_NAME" python=3.10
 fi
 
+conda install -y -n "$CONDA_ENV_NAME" -c defaults numpy opencv ultralytics
 conda run -n "$CONDA_ENV_NAME" python -m pip install --upgrade pip
-conda run -n "$CONDA_ENV_NAME" python -m pip install -r requirements.txt
+conda run -n "$CONDA_ENV_NAME" python -m pip install mediapipe
 
 echo "Tony environment is ready (conda mode)."
 echo "Activate with: conda activate $CONDA_ENV_NAME"

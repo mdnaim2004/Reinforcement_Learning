@@ -49,4 +49,4 @@ Press `r` to reset football selection and control.
 
 - If YOLO model download fails or `ultralytics` is unavailable, the simulation still runs with gesture-only control.
 - Keep your hand and full upper body in frame for better swipe and both-hands-raised detection.
-- On systems where `python3 -m venv` is not available, the setup script auto-falls back to a conda env named `tony_env`.
+- On systems where `python3 -m venv` is not available, the setup script auto-falls back to a conda env named `tony_env` and installs `numpy`, `opencv`, and `ultralytics` from conda before `mediapipe` from pip.

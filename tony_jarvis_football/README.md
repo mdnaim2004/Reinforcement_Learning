@@ -37,7 +37,8 @@ camera -> hand tracking -> gesture recognition -> holographic rendering -> UI ov
 ```bash
 cd tony_jarvis_football
 bash scripts/create_tony_environment.sh
-source tony_env/bin/activate
+source tony_env/bin/activate  # if script used venv mode
+# or: conda activate tony_env  # if script used conda mode
 python run.py
 ```
 
@@ -48,3 +49,4 @@ Press `r` to reset football selection and control.
 
 - If YOLO model download fails or `ultralytics` is unavailable, the simulation still runs with gesture-only control.
 - Keep your hand and full upper body in frame for better swipe and both-hands-raised detection.
+- On systems where `python3 -m venv` is not available, the setup script auto-falls back to a conda env named `tony_env`.
